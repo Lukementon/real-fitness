@@ -1,0 +1,26 @@
+.sidebar {
+  transition: all 0.5s ease;
+}
+
+.sidebar_close {
+  transition: all 0.5s ease;
+  display: none;
+}
+
+.sidebar_elements {
+  height: 100vh;
+  transition: all 0.5s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  color: #fff;
+}

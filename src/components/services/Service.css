@@ -1,0 +1,96 @@
+.service {
+  background-color: #fff;
+  color: black;
+  line-height: 1.5;
+}
+
+.pimg1,
+.pimg2,
+.pimg3,
+.pimg4 {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.8;
+}
+
+.pimg1 {
+  background-image: url("../../img/banner-ex.jpg");
+  min-height: 100vh;
+  object-fit: contain;
+}
+.pimg2 {
+  background-image: url("../../img/meal1.jpg");
+  min-height: 800px;
+  object-fit: contain;
+}
+.pimg3 {
+  background-image: url("../../img/dumbells.jpg");
+  min-height: 800px;
+  object-fit: contain;
+}
+
+.pimg4 {
+  background-image: url("../../img/banner-color.jpg");
+  min-height: 100vh;
+  object-fit: contain;
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+}
+
+h2 {
+  font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+h4 {
+  font-weight: 300;
+}
+p {
+  padding-top: 0.5rem;
+}
+
+.section-light {
+  background-color: #f4f4f4;
+}
+.section-dark {
+  background-color: #111;
+  color: #fff;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.ptext .border {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+}
+
+.ptext .border.trans {
+  background-color: transparent;
+}
+@media (max-width: 770px) {
+  .section {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .pimg1,
+  .pimg2,
+  .pimg3,
+  .pimg4 {
+    background-attachment: scroll;
+  }
+}

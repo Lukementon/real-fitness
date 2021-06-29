@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Services from "./pages/Services";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+  if (isOpen) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "scroll";
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home toggle={toggle} isOpen={isOpen} />
+          </Route>
+          <Route path="/services">
+            <Services toggle={toggle} isOpen={isOpen} />
+          </Route>
+          <Route path="/contact">
+            <ContactPage toggle={toggle} isOpen={isOpen} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
