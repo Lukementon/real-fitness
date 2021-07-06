@@ -28,6 +28,18 @@
 
 .img_container {
   width: 50%;
+  height: 50%;
+  display: flex;
+}
+
+.img_container > img {
+  width: 100%;
+  margin: 5rem 0rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .logo {
@@ -45,6 +57,11 @@
 
 .icon {
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.big-logo {
+  display: none;
 }
 
 @media (max-width: 1490px) {
@@ -53,9 +70,13 @@
     align-items: center;
     flex-direction: column;
   }
+  .big-logo {
+    display: flex;
+  }
   .img_container {
     width: 100%;
   }
+
   .description_container {
     width: 100%;
   }
@@ -88,10 +109,24 @@
     justify-content: center;
     align-items: center;
   }
+  .img_container {
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+  .img_container > img {
+    margin-top: 1rem;
+  }
 }
 @media (max-width: 460px) {
   .whatWeDo {
     margin-top: -50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .big-logo {
+    width: 100%;
+    height: 100%;
   }
 }
 

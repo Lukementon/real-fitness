@@ -1,24 +1,34 @@
 import React from "react";
-import "./Sidebar.css";
+import {
+  SidebarContainer,
+  Icon,
+  CloseIcon,
+  SidebarWrapper,
+  SidebarMenu,
+  SidebarLink,
+} from "./SidebarElements";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ toggle, isOpen }) => {
   return (
-    <div>
-      <div className={isOpen ? "sidebar" : "sidebar_close"}>
-        <div className="sidebar_elements">
-          <Link className="link" to="/">
-            <p onClick={toggle}>About</p>
+    <SidebarContainer isOpen={isOpen}>
+      <Icon onClick={toggle}>
+        <CloseIcon />
+      </Icon>
+      <SidebarWrapper>
+        <SidebarMenu>
+          <Link to="/">
+            <SidebarLink onClick={toggle}>About</SidebarLink>
           </Link>
-          <Link className="link" to="/services">
-            <p onClick={toggle}>Services</p>
+          <Link to="/services">
+            <SidebarLink onClick={toggle}>Services</SidebarLink>
           </Link>
-          <Link className="link" to="/contact">
-            <p onClick={toggle}>Contact</p>
+          <Link to="/contact">
+            <SidebarLink onClick={toggle}>Contact</SidebarLink>
           </Link>
-        </div>
-      </div>
-    </div>
+        </SidebarMenu>
+      </SidebarWrapper>
+    </SidebarContainer>
   );
 };
 

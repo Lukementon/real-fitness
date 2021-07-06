@@ -1,9 +1,11 @@
 import React from "react";
 import "./WhatWeDo.css";
+import jason from "../../img/jason.jpg";
 import bigLogo from "../../img/bigLogo.png";
 import { FaFacebookF, FaEnvelope, FaInstagram } from "react-icons/fa";
-
+import { useHistory } from "react-router-dom";
 const WhatWeDo = () => {
+  const history = useHistory();
   return (
     <div className="whatWeDo">
       <div className="whatWeDo_container">
@@ -33,16 +35,25 @@ const WhatWeDo = () => {
 
           <div className="icon_container">
             <div className="icons">
-              <FaFacebookF className="facebook icon" size="1.5rem" />
-              <FaInstagram className="instagram icon" size="1.5rem" />
-              <FaEnvelope className="envelope icon " size="1.5rem" />
+              <a href="https://www.facebook.com/realfitnessrealpeople/">
+                <FaFacebookF className="facebook icon" size="1.5rem" />
+              </a>
+              <a href="https://instagram.com/realfitness_realpeople?utm_medium=copy_link">
+                <FaInstagram className="instagram icon" size="1.5rem" />
+              </a>
+              <FaEnvelope
+                onClick={() => history.push("/contact")}
+                className="envelope icon "
+                size="1.5rem"
+              />
             </div>
             <h4>jason@realfitness.ie</h4>
           </div>
         </div>
 
         <div className="img_container">
-          <img className="logo" src={bigLogo} alt="" />
+          <img className="jason logo" src={jason} alt="" />
+          <img className="big-logo logo" src={bigLogo} alt="" />
         </div>
       </div>
     </div>

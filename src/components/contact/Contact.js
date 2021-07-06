@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import { FaFacebookF, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import db from "../../firebase";
+import { useHistory } from "react-router-dom";
 
 const Contact = () => {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -15,7 +17,6 @@ const Contact = () => {
     e.preventDefault();
     if (name === "" || email === "" || message === "") {
       setLoading(false);
-      alert("Please include a name, email and message");
     } else {
       setLoading(true);
 
@@ -27,7 +28,7 @@ const Contact = () => {
           message: message,
         })
         .then(() => {
-          alert("Message has been Submitted");
+          history.push("/success");
           setLoading(false);
         })
         .catch(err => {
@@ -48,9 +49,18 @@ const Contact = () => {
           <p>jason@realfitness.ie</p>
           <p>0872492346</p>
           <div className="contact-icons">
-            <FaFacebookF className="facebook icon" size="1.5rem" />
-            <FaInstagram className="instagram icon" size="1.5rem" />
-            <FaEnvelope className="envelope icon" size="1.5rem" />
+            <a
+              className="contact-icon"
+              href="https://www.facebook.com/realfitnessrealpeople/"
+            >
+              <FaFacebookF className="facebook icon" size="1.5rem" />
+            </a>
+            <a
+              className="contact-icon"
+              href="https://instagram.com/realfitness_realpeople?utm_medium=copy_link"
+            >
+              <FaInstagram className="instagram icon" size="1.5rem" />
+            </a>
           </div>
         </div>
         <div className="contact-form">
@@ -60,6 +70,7 @@ const Contact = () => {
               <input
                 value={name}
                 onChange={e => setName(e.target.value)}
+                required
                 className="name"
                 type="text"
                 name="name"
@@ -70,6 +81,7 @@ const Contact = () => {
               <input
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                required
                 className="email"
                 type="email"
                 name="email"
@@ -90,6 +102,7 @@ const Contact = () => {
               <textarea
                 value={message}
                 onChange={e => setMessage(e.target.value)}
+                required
                 placeholder="Message"
                 className="text"
                 name="message"

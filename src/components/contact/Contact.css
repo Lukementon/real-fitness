@@ -24,6 +24,10 @@
   justify-self: center;
 }
 
+.contact-icon {
+  color: black;
+}
+
 .info {
   width: 100%;
   display: flex;

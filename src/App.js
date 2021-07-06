@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Services from "./pages/Services";
 import ContactPage from "./pages/ContactPage";
+import Success from "./components/success/Success";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/contact">
             <ContactPage toggle={toggle} isOpen={isOpen} />
+          </Route>
+          <Route path="/success">
+            <Success />
           </Route>
         </Switch>
       </Router>

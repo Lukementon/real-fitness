@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
-import logo from "../../img/Logo.jpg";
+import logo from "../../img/Logo1.png";
 import { MenuIcon } from "@heroicons/react/outline";
 
 import { useHistory } from "react-router";
 
-const Nav = ({ toggle, isOpen }) => {
+const Nav = ({ toggle }) => {
   const history = useHistory();
   const [show, handleShow] = useState(false);
 
@@ -24,20 +24,20 @@ const Nav = ({ toggle, isOpen }) => {
   return (
     <div className={`nav ${show && "nav_black"}`}>
       <div className="nav_contents">
-        <img className="nav_logo" src={logo} alt="" />
+        <img
+          onClick={() => history.push("/")}
+          className="nav_logo"
+          src={logo}
+          alt=""
+        />
         <div className="nav_links">
           <p onClick={() => history.push("/")}>About</p>
           <p onClick={() => history.push("/services")}>Services</p>
 
           <p onClick={() => history.push("/contact")}>Contact</p>
         </div>
-        {!isOpen ? (
-          <MenuIcon onClick={toggle} className="nav_burger" />
-        ) : (
-          <h1 onClick={toggle} className="nav_burger nav-x">
-            X
-          </h1>
-        )}
+
+        <MenuIcon onClick={toggle} className="nav_burger" />
       </div>
     </div>
   );

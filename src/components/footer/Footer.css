@@ -20,6 +20,11 @@
   display: flex;
 }
 
+a {
+  padding: 0;
+  margin: 0;
+}
+
 .footer_title_text {
   font-size: 1rem;
   font-weight: 400;
@@ -27,6 +32,10 @@
 
 .designer_contents_text {
   font-size: 1rem;
+}
+.designer_contents_text:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media (max-width: 560px) {

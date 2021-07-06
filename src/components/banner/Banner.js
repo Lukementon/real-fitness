@@ -1,8 +1,10 @@
 import React from "react";
 import "./Banner.css";
 import banner from "../../img/banner-color.jpg";
+import { useHistory } from "react-router-dom";
 
 const Banner = () => {
+  const history = useHistory();
   return (
     <header
       style={{
@@ -21,7 +23,12 @@ const Banner = () => {
           approachable, ready to give you the support and motivation you need.
         </p>
         <div className="banner_buttons">
-          <button className="banner_button">Contact</button>
+          <button
+            onClick={() => history.push("/contact")}
+            className="banner_button"
+          >
+            Contact
+          </button>
         </div>
         <div className="banner--fadeBottom" />
       </div>

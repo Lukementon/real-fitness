@@ -66,7 +66,7 @@ const Testimony = () => {
             <AiFillStar className="star" />
             <AiFillStar className="star" />
           </div>
-          <h3>Burt Kerinsy</h3>
+          <h3>Burt Kerins</h3>
           <p className="review_description">
             Have been with Jason over a month now. I found his knowledge of
             exercises, stretching and always varies your sessions. He is always
