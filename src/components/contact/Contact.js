@@ -13,6 +13,8 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const recepient = ["jasonkavana@gmail.com"];
+
   const handleSubmit = e => {
     e.preventDefault();
     if (name === "" || email === "" || message === "") {
@@ -20,12 +22,25 @@ const Contact = () => {
     } else {
       setLoading(true);
 
+      // admin.firestore().collection('emails').add({
+      //   to: 'name@email.com',
+      //   message: {
+      //     subject: 'Hello, World!',
+      //     html: 'This is the<code>HTML</code> email body.',
+      //   },
+      // })
+
       db.collection("messages")
         .add({
           name: name,
           email: email,
           phone: phone,
-          message: message,
+          // message: message,
+          message: {
+            subject: "Real Fitness Message Submission",
+            html: `${name} <br/> ${email} <br/> ${phone} <br/> ${message}`,
+          },
+          to: recepient,
         })
         .then(() => {
           history.push("/success");
@@ -42,6 +57,7 @@ const Contact = () => {
       setMessage("");
     }
   };
+
   return (
     <div className="contact">
       <div className="contact-container">
